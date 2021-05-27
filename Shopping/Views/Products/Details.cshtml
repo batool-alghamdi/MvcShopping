@@ -1,0 +1,33 @@
+﻿
+@{
+    var prd = (ProductModel)ViewData["Product"];
+    ViewData["Title"] = "Search Result";
+    /*Layout = "_LayoutDesign";*/
+}
+
+@{
+    if (prd != null)
+    {
+    <table style="width:100%" class="table table-striped table-hover">
+        <tr class="table-danger">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Image</th>
+        </tr>
+        <tr class="table-light">
+            <td>@prd.id</td>
+            <td>@prd.name</td>
+            <td>SAR @prd.price</td>
+            <td> <img src=@prd.image alt=@prd.name height="150px" /></td>
+        </tr>
+    </table>
+    }
+    else
+    {
+        <div style="width:100%" class="position-absolute top-0 start-50 translate-middle">
+            <h1>404</h1>
+            <h3>Product not found</h3>
+        </div>
+    }
+}

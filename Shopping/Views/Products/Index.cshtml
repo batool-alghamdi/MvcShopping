@@ -1,0 +1,30 @@
+﻿
+
+@{
+    var products = (List<ProductModel>)ViewData["AllProducts"];
+    var color = (string) ViewData["color"];
+    Layout = "_Layout1";
+}
+
+
+<table style="width:100%" class="table table-striped ">
+    <tr class="table-success">
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">IMAGE</th>
+        <th scope="col">DETAILS</th>
+
+    </tr>
+    @foreach (var prd in products)
+    {
+        <tr class="table-warning">
+            <td>@prd.id</td>
+            <td>@prd.name</td>
+            <td>SAR @prd.price</td>
+            <td> <img src=@prd.image alt=@prd.name height="150px" /></td>
+            <td><a href="/products/details/@prd.id"><button type="button" class="btn btn-info">show</button></a></td>
+        </tr>
+                   
+    }
+</table> 
